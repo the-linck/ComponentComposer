@@ -1,6 +1,6 @@
 # Component Composer
 
-Stateless syntax-sugar component that composes several JSX components in a single one.
+Stateless syntax-sugar components that composes several JSX components in a single one.
 
 
 
@@ -125,7 +125,7 @@ The resulting component can be safely passed to `ComponentComposer()`.
 * `Component`: TComponent
 Component to compose.
 
-* `ComponentProps`: T  
+* `ComponentProps`: TProps  
 Props for the Component.
 
 ### Return Type
