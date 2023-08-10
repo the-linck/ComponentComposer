@@ -53,7 +53,7 @@ const CustomComponent = (props) => {
 		</ComposedContext>
 	];
 };
-export CustomComponent;
+export default CustomComponent;
 ```
 
 ## ProviderComponent
@@ -106,7 +106,7 @@ const CustomComponent = (props) => {
 		</ComposedContext>
 	];
 };
-export CustomComponent;
+export default CustomComponent;
 ```
 
 ## PropsComponent
@@ -163,5 +163,5 @@ const CustomComponent = (props) => {
 		</ComposedContext>
 	];
 };
-export CustomComponent;
+export default CustomComponent;
 ```
