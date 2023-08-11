@@ -1,13 +1,14 @@
-# Component Composer
+# Component Composer (TypeScript Version)
 
-Stateless syntax-sugar components that composes several JSX components in a single one.
+Stateless syntax-sugar components that composes several TSX components in a single one.
 
 
 
 ## Dependencies
 
 * ReactJS
-* JSX
+* TypeScript
+* TSX (JSX + TypeScript)
 
 
 
@@ -16,18 +17,18 @@ Stateless syntax-sugar components that composes several JSX components in a sing
 Function that generates the composed component, from one or more parameters with React components, to become a single component.
 
 ```ts
-function ComponentComposer(...Components : React.Component) : React.Component
+function ComponentComposer(...Components : React.ComponentType) : React.ComponentType
 ```
 All arguments must be Component class/functions, not instances or strings.
 
 ### Parameters
 
-* `Components`: ...React.Component  
+* `Components`: ...React.ComponentType  
 One or more Components to compose.
 
 ### Return Type
 
-React.Component
+React.ComponentType
 
 ### Example
 
@@ -61,7 +62,7 @@ export default CustomComponent;
 Creates a composable Context Provider with only the `value` prop.
 
 ```ts
-function ProviderComponent<T>(Provider : React.Provider<T>, Value: T) : React.Component
+function ProviderComponent<T>(Provider : React.Provider<T>, Value: T) : JSX.Element
 ```
 
 The resulting component can be safely passed to `ComponentComposer()`.
@@ -76,7 +77,7 @@ Data to be provided to the Context.
 
 ### Return Type
 
-React.Component
+JSX.Element
 
 ### Example
 
@@ -115,22 +116,22 @@ Creates a composable Component with the given props.
 Works exactly as `ProviderComponent`, but receives any `Component` and the object `ComponentProps` with all props:
 
 ```ts
-function PropsComponent<TProps, TComponent>(Component : TComponent, ComponentProps: TProps) : TComponent
+function PropsComponent(Component : React.ComponentType, ComponentProps: React.ComponentProps<React.ComponentType>) : TComponent
 ```
 
 The resulting component can be safely passed to `ComponentComposer()`.
 
 ### Parameters
 
-* `Component`: TComponent
+* `Component`: React.ComponentType
 Component to compose.
 
-* `ComponentProps`: TProps  
+* `ComponentProps`: ComponentProps<React.ComponentType>  
 Props for the Component.
 
 ### Return Type
 
-TComponent
+JSX.Element
 
 ### Example
 
