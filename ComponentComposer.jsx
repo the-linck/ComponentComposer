@@ -1,10 +1,14 @@
 import React from "react";
 
 
+/**
+ * @template T
+ * @typedef {React.PropsWithChildren<React.ComponentProps<React.ComponentProps<T>>>} Props
+ */
 
 /**
- * @param {React.Component[]} Components
- * @returns {function(React.ComponentProps<React.FC>) : React.Component}
+ * @param {React.ComponentType[]} Components
+ * @returns {function(Props) : React.ReactElement}
  */
 export const ComponentComposer = (... Components) => (props) => {
 	if (Components.length === 0) {
@@ -28,19 +32,19 @@ export const ComponentComposer = (... Components) => (props) => {
  * @template T
  * @param {React.Provider<T>} Provider 
  * @param {T} Value 
- * @returns {React.Provider<T>}
+ * @returns {function(Props) : JSX.Element}
  */
+// eslint-disable-next-line react/display-name
 export const ProviderComponent = (Provider, Value) => (props) => {
 	return <Provider value={Value} {...props} />;
 };
 
 /**
- * @template {React.ComponentProps<React.FC>} TProps
- * @template {React.Component<TProps>} TComponent
- * @param {TComponent} Component 
- * @param {TProps} ComponentProps 
- * @returns {TComponent}
+ * @param {React.ComponentType} Component 
+ * @param {React.ComponentProps<React.ComponentType>} ComponentProps 
+ * @returns {function(Props) : JSX.Element}
  */
+// eslint-disable-next-line react/display-name
 export const PropsComponent = (Component, ComponentProps) => (props) => {
 	return <Component {... ComponentProps} {... props} />;
 };
